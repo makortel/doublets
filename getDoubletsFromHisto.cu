@@ -2074,7 +2074,12 @@ namespace gpuPixelDoublets {
   }
 }  // namespace gpuPixelDoublets
 
-int main() {
+int main(int argc, char** argv) {
+  std::string binname{"dump.bin"};
+  if(argc > 1) {
+    binname = argv[1];
+  }
+  std::cout << "Reading data from " << binname << std::endl;
 
   cudaStream_t stream;
   cudaCheck(cudaStreamCreate(&stream));
